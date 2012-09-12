@@ -1,0 +1,65 @@
+.\" Copyright 2011 Google Inc. All Rights Reserved.
+.\" 
+.\" Licensed under the Apache License, Version 2.0 (the "License");
+.\" you may not use this file except in compliance with the License.
+.\" You may obtain a copy of the License at
+.\" 
+.\"     http://www.apache.org/licenses/LICENSE-2.0
+.\" 
+.\" Unless required by applicable law or agreed to in writing, software
+.\" distributed under the License is distributed on an "AS IS" BASIS,
+.\" WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+.\" See the License for the specific language governing permissions and
+.\" limitations under the License.
+.\"
+.\" $ nroff -man pbpp.1
+.TH PBPP 1
+.SH NAME
+.B pbpp
+\- Protocol Buffer Pretty Printer
+.SH SYNOPSIS
+pbpp [ - |
+.I file
+]
+.SH DESCRIPTION
+.PP
+.I Pbpp
+reformats a protocol buffer message in text format and produces
+a neatly indented listing of the original message on the standard
+output.  Messages to be formatted are read from either the named
+file or standard input; specifying "-" as the input filename
+causes standard input to be read.  Indentation is fixed at two
+spaces per level, and
+.I pbpp
+takes no options.
+.PP
+Tokenization is simple and grammar rules are derived
+from observation of the protocol buffer text format.  The program
+makes no effort to validate the contents of the message and
+.I pbpp
+is completely unaware of the message's type.
+.SH SOURCE
+.B http://code.google.com/p/pbpp/
+.SH "SEE ALSO"
+.IR lex (1)
+.br
+.IR yacc (1)
+.br
+.I "Protocol Buffers"
+https://developers.google.com/protocol-buffers
+.SH DIAGNOSTICS
+.PP
+If the input file is unreadable or there is a parse error,
+a message will be printed to the standard error.
+.SH BUGS
+.PP
+Comment handling is rudimentary at best and probably does
+not do what you expect.
+.PP
+The message type is not validated; other tools exist for
+that.
+.PP
+The lexical scanner and parser are simple to the point of
+being simplistic.
+.PP
+Diagnostics are poor and nonspecific.

@@ -1,0 +1,51 @@
+header {
+  some_message {
+    Field: "value"
+    Thing: "00000000DEADCODE"
+  }
+  something: 123
+}
+request {
+  [Frobaz.ConstructionCompanyInc] {
+    header {
+      some_message {
+        Field: "value with spaces"
+        Thing: "00d3c4fbadc0ffee"
+      }
+      otherthing: 321
+    }
+    some_id {
+      some_variable: ALL_CAPS_IDENTIFIER
+      domain_name: "www.google.com"
+    }
+    empty_submessage { }
+    abc {
+      Repeated {
+        Info: {
+          AllPeople: true
+        }
+        Type: HUMANS
+      }
+      Repeated {
+        Info {
+          SomePerson {
+            PhoneNumber: 2125551212
+            CityId: 5
+          }
+        }
+        Type: RESIDENT
+      }
+    }
+    construction_site_options {
+      num_claw_hammers: 20
+      lots_nails: 9.2233720368547758e+18
+      thing_building {
+        structure_name: "new_york_apartment"
+        [new_york.ApartmentLivingOptions.tenement_building_options] {
+          bathtub_in_kitchen: 1
+          rungs_on_fire_escape_ladder: 20
+        }
+      }
+    }
+  }
+}
