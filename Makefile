@@ -12,10 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Note: if building with recent versions of Bison, Flex, and >C99
+# compilers, build with:
+# make 'YACC=POSIXLY_CORRECT=1 yacc' LEXLIB=-lfl
+
 YFLAGS=		-d
 PROG=		pbpp
 OBJS=		lexer.o parser.o
-LIBS=		-ly -ll
+LEXLIB=		-ll
+LIBS=		-ly $(LEXLIB)
 
 $(PROG):	$(OBJS)
 		$(CC) -o $(PROG) $(OBJS) $(LIBS)
